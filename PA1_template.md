@@ -59,16 +59,13 @@ median(g1$steps)
 ## [1] 10765
 ```
 
-```r
-g2<-aggregate(data_noNA$steps~as.numeric(as.character(data_noNA$interval)),data=data_noNA,FUN=mean)
-names(g2)<-c("interval","steps")
-```
-
 ### What is the average daily activity pattern?
 * Make a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all days (y-axis)
 
 
 ```r
+g2<-aggregate(data_noNA$steps~as.numeric(as.character(data_noNA$interval)),data=data_noNA,FUN=mean)
+names(g2)<-c("interval","steps")
 plot(g2$interval, g2$steps, type="l",ylab = "No. of steps", xlab = "5-minute interval")
 ```
 
